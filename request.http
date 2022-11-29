@@ -1,0 +1,26 @@
+###
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+"name":"Lorent Shtavica",
+"username":"lorent22",
+"password":"1Password23@",
+"confirmPassword":"1Password23@",
+"email":"lorentsh@gmail.com"
+}
+###
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "username":"lorent22",
+  "password":"1Password23@"
+}
+###
+POST  http://localhost:3000/auth/forgot
+Content-Type: application/json
+
+{
+  "email":"lorentsh@gmail.com"
+}

@@ -8,20 +8,20 @@ export class AuthController {
   constructor(private authService: AuthService) {}
   @Post('signup')
   signup(@Body() dto: AuthDto) {
-    console.log('sign up');
+    return this.authService.signup(dto);
   }
   @HttpCode(200)
   @Post('signin')
   signin(@Body() dto: SignInDto) {
-    console.log('sign in');
+    return this.authService.signin(dto);
   }
 
   @Post('forgot')
   forgotPassword(@Body() forgotDto: ForgotDto) {
-    console.log('forgot password');
+    return this.authService.forgotPassword(forgotDto);
   }
   @Post('reset')
   resetPassword(@Body() resetDto: ResetDto) {
-    console.log('reset password');
+    return this.authService.resetPassword(resetDto);
   }
 }
