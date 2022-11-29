@@ -9,7 +9,7 @@ export class MailService {
     await this.mailerService.sendMail({
       to: email,
       subject: 'Reset password!',
-      template: 'reset-password',
+      template: './templates/reset-password',
       context: {
         name,
         pin,
