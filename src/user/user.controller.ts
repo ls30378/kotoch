@@ -10,11 +10,11 @@ import { GetUser } from 'src/decorator/get-user.decorator';
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Get('id/:username')
+  @Get('username/:username')
   @UseGuards(OptionalJwtGuard, RolesGuard)
   @Roles(0, 1, 2)
   getUserDetails(@Param('username') username: string) {
-    console.log(username);
+    return this.userService.getUserDetails(username);
   }
 
   @Get('trending')
