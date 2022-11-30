@@ -21,13 +21,13 @@ export class UserController {
   @UseGuards(OptionalJwtGuard, RolesGuard)
   @Roles(0, 1, 2)
   getTrendingUsers() {
-    console.log('trending');
+    return this.userService.getTrendingUsers();
   }
 
   @Post('like/:id')
   @UseGuards(JwtGuard, RolesGuard)
   @Roles(1, 2)
   likeUser(@GetUser('id') id: number, @Param('id') userId: number) {
-    console.log(id, userId);
+    return this.userService.likeUser(id, userId);
   }
 }

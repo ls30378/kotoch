@@ -19,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
         id: payload.sub,
       },
     });
-    console.log(payload);
+    // console.log(payload);
     delete user.password;
     return user;
   }

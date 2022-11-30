@@ -1,4 +1,4 @@
-###
+### SIGN UP FORM
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
@@ -9,7 +9,7 @@ Content-Type: application/json
 "confirmPassword":"1Password23@",
 "email":"lorentsh@gmail.com"
 }
-###
+### SIGN IN FORM
 POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
@@ -17,12 +17,28 @@ Content-Type: application/json
   "username":"lorent22",
   "password":"1Password23@"
 }
-###
+### THIS REQUEST WILL SEND AN EMAIL WITH PIN FOR RESETING PASSWORD, NEW RANDOM PIN WILL BE GENERATED IN EVERY REQUEST AND PUSHED TO DB
 POST  http://localhost:3000/auth/forgot
 Content-Type: application/json
 
 {
   "email":"lorentsh@gmail.com"
 }
-###
+### THIS REQUEST WILL CHANGE PASSWORD IF PIN IS CORRECT
+POST http://localhost:3000/auth/reset
+Content-Type: application/json
+
+{
+  "password":"1Password23@",
+  "confirmPassword":"1Password23@",
+  "email":"lorentsh@gmail.com",
+  "pin":669011
+
+}
+### GET USER DETAILS (WORKS FOR LOGGED IN AND GUEST USERS)
 GET http://localhost:3000/user/username/lorent22
+### GET TOP 3 LIKED USERS (WORKS FOR LOGGED IN AND GUEST USERS)
+GET http://localhost:3000/user/trending
+### ONLY FOR LOGGED IN USERS - IF ID EXIST UNLIKE, IF ID DON'T EXIST LIKE (JSON SHOWS TOTAL NUMBER OF LIKES)
+POST http://localhost:3000/user/like/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoibG9yZW50MjIiLCJ1c2VybmFtZSI6ImxvcmVudHNoQGdtYWlsLmNvbSIsImlhdCI6MTY2OTgzNjgwMn0.zekR4hNXYm9dWDrfQjW_4ruC_tVhBGEsMT2icOdZbaM
